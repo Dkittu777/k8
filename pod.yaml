@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd
+spec:
+  selector:
+    matchLabels:
+      app: httpd
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: httpd
+    spec:
+      containers:
+      - name: httpd
+        image: httpd # Update the version of httpd from 1.14.2 to 1.16.1
+        ports:
+        - containerPort: 80
